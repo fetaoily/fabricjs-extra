@@ -1,0 +1,9 @@
+{
+  "name": "@fetaoily/fabricjs-extra",
+  "version": "0.0.0",
+  "description": "@fetaoily/fabricjs-extra",
+  "main": "index.js",
+  "repository": "https://github.com/fetaoily/fabricjs-extra.git",
+  "author": "fetaoily <fetaoily@gmail.com>",
+  "license": "MIT"
+}
