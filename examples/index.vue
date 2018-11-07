@@ -21,8 +21,8 @@
     },
     methods: {
       initFabricCanvas () {
-        let width = window.innerWidth;
-        let height = window.innerHeight;
+        let width = window.innerWidth * 0.9;
+        let height = window.innerHeight * 0.9;
         this.canvas = new fabric.Canvas('c', {
             width, height
           }
@@ -42,10 +42,13 @@
   .fabricjs-extra-examples {
     width: 100vw;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .fabricjs-extra-examples-canvas {
-    width: 100vw;
-    height: 100vh;
+    box-shadow: 0 0 10px #B00000;
+    border-radius: 10px;
   }
 </style>
