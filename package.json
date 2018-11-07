@@ -10,6 +10,7 @@
     "dev": "vue serve ./examples/index.vue"
   },
   "devDependencies": {
+    "@vue/cli": "3.1.1",
     "fabric": "2.4.3"
   }
 }
