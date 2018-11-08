@@ -1,8 +1,18 @@
 <template>
   <div class="fabricjs-extra-examples">
-    <el-card>
-      <canvas class="fabricjs-extra-examples-canvas" id="c"></canvas>
-    </el-card>
+    <el-container>
+      <el-header>
+        <LayoutHeader>Header</LayoutHeader>
+      </el-header>
+      <el-main>
+        <div class="app-main">
+          <canvas class="fabricjs-extra-examples-canvas" id="c"></canvas>
+        </div>
+      </el-main>
+      <el-footer>
+        <LayoutFooter>Footer</LayoutFooter>
+      </el-footer>
+    </el-container>
   </div>
 </template>
 <script>
@@ -11,11 +21,14 @@
   import 'element-ui/lib/theme-chalk/index.css';
   import Vue from 'vue';
   import ElementUI from 'element-ui';
+  import LayoutFooter from './components/layout/Footer';
+  import LayoutHeader from './components/layout/Header';
 
   Vue.use(ElementUI);
 
   window.fabric = window.fabric || fabric;
   export default {
+    components: { LayoutFooter, LayoutHeader },
     data () {
       return {
         msg: 'Examples',
@@ -28,8 +41,7 @@
     },
     methods: {
       initFabricCanvas () {
-        let width = window.innerWidth * 0.9;
-        let height = window.innerHeight * 0.9;
+        let { width, height } = this.getCanvasWidthAndHeight();
         window.__canvas = this.canvas = new fabric.Canvas('c', {
             width, height, isDrawingMode: true
           }
@@ -54,12 +66,16 @@
       },
       initWindowResizeEventHandler () {
         window.onresize = () => {
-          let width = window.innerWidth * 0.9;
-          let height = window.innerHeight * 0.9;
+          let { width, height } = this.getCanvasWidthAndHeight();
           window.__canvas.setWidth(width);
           window.__canvas.setHeight(height);
           window.__canvas.renderAll();
         }
+      },
+      getCanvasWidthAndHeight () {
+        let cEl = document.querySelector('div.app-main');
+        let { clientWidth, clientHeight } = cEl;
+        return { width: clientWidth, height: clientHeight }
       }
     }
   }
@@ -68,12 +84,12 @@
   .fabricjs-extra-examples {
     width: 100vw;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .fabricjs-extra-examples-canvas {
+    flex: 1;
+    width: 100%;
+    height: 100%;
     box-shadow: 0 0 10px #B00000;
     border-radius: 10px;
   }
