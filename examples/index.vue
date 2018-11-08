@@ -1,11 +1,18 @@
 <template>
   <div class="fabricjs-extra-examples">
-    <canvas class="fabricjs-extra-examples-canvas" id="c"></canvas>
+    <el-card>
+      <canvas class="fabricjs-extra-examples-canvas" id="c"></canvas>
+    </el-card>
   </div>
 </template>
 <script>
   import { fabric } from '../index';
   import './index.css';
+  import 'element-ui/lib/theme-chalk/index.css';
+  import Vue from 'vue';
+  import ElementUI from 'element-ui';
+
+  Vue.use(ElementUI);
 
   window.fabric = window.fabric || fabric;
   export default {
