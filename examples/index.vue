@@ -5,8 +5,11 @@
 </template>
 <script>
   import { fabric } from 'fabric';
-  import '../index';
+  import { YxExtDashLine } from '../index';
   import './index.css';
+  console.info('==========================');
+  console.info(YxExtDashLine);
+  console.info('==========================');
 
   window.fabric = window.fabric || fabric;
   export default {
@@ -34,7 +37,7 @@
           width: 60,
           height: 70
         });
-        let dashLine = new fabric.YxExtDashLine([10, 10, 300, 300], {
+        let dashLine = new fabric.YxExtDashLine([200, 10, 500, 300], {
           fill: 'red',
           stroke: 'red',
           strokeWidth: 5,
