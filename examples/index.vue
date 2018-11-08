@@ -4,11 +4,13 @@
       <el-header>
         <LayoutHeader>Header</LayoutHeader>
       </el-header>
-      <el-main>
-        <div class="app-main">
-          <canvas class="fabricjs-extra-examples-canvas" id="c"></canvas>
-        </div>
-      </el-main>
+      <el-container>
+        <el-main>
+          <div class="app-main">
+            <canvas class="fabricjs-extra-examples-canvas" id="c"></canvas>
+          </div>
+        </el-main>
+      </el-container>
       <el-footer>
         <LayoutFooter>Footer</LayoutFooter>
       </el-footer>
@@ -18,7 +20,6 @@
 <script>
   import { fabric } from '../index';
   import './index.css';
-  import 'element-ui/lib/theme-chalk/index.css';
   import Vue from 'vue';
   import ElementUI from 'element-ui';
   import LayoutFooter from './components/layout/Footer';
