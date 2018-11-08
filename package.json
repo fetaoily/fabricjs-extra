@@ -7,14 +7,17 @@
   "author": "fetaoily <fetaoily@gmail.com>",
   "license": "MIT",
   "keywords": [
+    "fabric",
+    "fabricjs",
     "fabric.js",
     "fabricjs-extra"
   ],
   "scripts": {
-    "dev": "vue serve ./examples/index.vue"
+    "dev": "vue serve -o ./examples/index.vue"
   },
   "devDependencies": {
     "@vue/cli": "3.1.1",
+    "@vue/cli-service-global": "3.1.2",
     "fabric": "2.4.3"
   }
 }
