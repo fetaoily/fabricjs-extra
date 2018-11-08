@@ -15,10 +15,12 @@
   "scripts": {
     "dev": "vue serve -o ./examples/index.vue"
   },
+  "dependencies": {
+    "fabric": "2.4.3"
+  },
   "devDependencies": {
     "@vue/cli": "3.1.1",
     "@vue/cli-service-global": "3.1.2",
-    "element-ui": "2.4.9",
-    "fabric": "2.4.3"
+    "element-ui": "2.4.9"
   }
 }
