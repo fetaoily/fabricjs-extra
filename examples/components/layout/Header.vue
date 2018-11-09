@@ -1,5 +1,8 @@
 <template>
   <header class="layout-header">
+    <!-- =========================================================================================================== -->
+    <!-- 画板操作 -->
+    <!-- =========================================================================================================== -->
     <el-button-group>
       <el-button v-on:click="setDrawingMode(false)" title="选择">
         <font-awesome-icon icon="hand-pointer"></font-awesome-icon>
@@ -17,6 +20,13 @@
         <font-awesome-icon icon="redo"></font-awesome-icon>
       </el-button>
       <el-button v-on:click="clearCanvas">清屏</el-button>
+    </el-button-group>
+    <!-- =========================================================================================================== -->
+    <!-- 更换背景 -->
+    <!-- =========================================================================================================== -->
+    <el-button-group>
+      <el-button v-on:click="setBackgroundImageCenter(require('../../assets/img-bg/田字格.png'))">背景1</el-button>
+      <el-button v-on:click="setBackgroundImageCenter(require('../../assets/img-bg/田字格（单个）.png'))">背景2</el-button>
     </el-button-group>
   </header>
 </template>
@@ -53,6 +63,9 @@
       },
       clearCanvas () {
         window.__canvas.clear();
+      },
+      setBackgroundImageCenter (imageDataURL) {
+        this.canvas && this.canvas.setBackgroundImageCenter(imageDataURL);
       }
     }
   }
