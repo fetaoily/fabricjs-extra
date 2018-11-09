@@ -1,7 +1,7 @@
 <template>
   <div class="fabricjs-extra-examples">
     <el-container>
-      <el-header>
+      <el-header v-if="canvas">
         <LayoutHeader>Header</LayoutHeader>
       </el-header>
       <el-container>
@@ -22,10 +22,17 @@
   import './index.css';
   import Vue from 'vue';
   import ElementUI from 'element-ui';
+  import { library } from '@fortawesome/fontawesome-svg-core';
+  import { faUndo, faRedo, faBrush, faEraser } from '@fortawesome/free-solid-svg-icons';
+  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
   import LayoutFooter from './components/layout/Footer';
   import LayoutHeader from './components/layout/Header';
 
   Vue.use(ElementUI);
+  Vue.use(FontAwesomeIcon);
+
+  library.add(faUndo, faRedo, faBrush, faEraser);
+  Vue.component('font-awesome-icon', FontAwesomeIcon);
 
   window.fabric = window.fabric || fabric;
   export default {
