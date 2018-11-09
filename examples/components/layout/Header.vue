@@ -1,6 +1,9 @@
 <template>
   <header class="layout-header">
     <el-button-group>
+      <el-button v-on:click="setDrawingMode(false)" title="选择">
+        <font-awesome-icon icon="hand-pointer"></font-awesome-icon>
+      </el-button>
       <el-button v-on:click="setDrawingModeForBrush" title="画笔">
         <font-awesome-icon icon="brush"></font-awesome-icon>
       </el-button>
@@ -38,6 +41,9 @@
       },
       redo () {
         this.canvas && this.canvas.redo()
+      },
+      setDrawingMode (flag = true) {
+        this.canvas && this.canvas.setDrawingMode(flag)
       },
       setDrawingModeForBrush () {
         window.__canvas.setDrawingModeForBrush()
