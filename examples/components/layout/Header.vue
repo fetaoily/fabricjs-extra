@@ -22,11 +22,18 @@
       <el-button v-on:click="clearCanvas">清屏</el-button>
     </el-button-group>
     <!-- =========================================================================================================== -->
-    <!-- 更换背景 -->
+    <!-- 更换背景图片 -->
     <!-- =========================================================================================================== -->
     <el-button-group>
       <el-button v-on:click="setBackgroundImageCenter(require('../../assets/img-bg/田字格.png'))">背景1</el-button>
       <el-button v-on:click="setBackgroundImageCenter(require('../../assets/img-bg/田字格（单个）.png'))">背景2</el-button>
+    </el-button-group>
+    <!-- =========================================================================================================== -->
+    <!-- 更换前景图片 -->
+    <!-- =========================================================================================================== -->
+    <el-button-group>
+      <el-button v-on:click="setOverlayImageCenter(require('../../assets/img-bg/田字格.png'))">前景1</el-button>
+      <el-button v-on:click="setOverlayImageCenter(require('../../assets/img-bg/田字格（单个）.png'))">前景2</el-button>
     </el-button-group>
   </header>
 </template>
@@ -56,13 +63,16 @@
         this.canvas && this.canvas.setDrawingMode(flag)
       },
       setDrawingModeForBrush () {
-        window.__canvas.setDrawingModeForBrush()
+        window.__canvas.setDrawingModeForBrush({})
       },
       setDrawingModeForEraser () {
         window.__canvas.setDrawingModeForEraser({ width: 30 })
       },
       clearCanvas () {
         window.__canvas.clear();
+      },
+      setOverlayImageCenter (imageDataURL) {
+        this.canvas && this.canvas.setOverlayImageCenter(imageDataURL, { opacity: 0.5 });
       },
       setBackgroundImageCenter (imageDataURL) {
         this.canvas && this.canvas.setBackgroundImageCenter(imageDataURL);
