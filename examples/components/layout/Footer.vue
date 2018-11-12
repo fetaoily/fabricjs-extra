@@ -1,6 +1,8 @@
 <template>
   <footer class="layout-footer">
-    @fetaoily
+    <font-awesome-icon icon="copyright" spin></font-awesome-icon>
+    <span style="padding: 10px;">@fetaoily</span>
+    <font-awesome-icon icon="copyright" spin></font-awesome-icon>
   </footer>
 </template>
 

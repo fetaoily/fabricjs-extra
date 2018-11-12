@@ -23,7 +23,7 @@
   import Vue from 'vue';
   import ElementUI from 'element-ui';
   import { library } from '@fortawesome/fontawesome-svg-core';
-  import { faUndo, faRedo, faBrush, faEraser, faHandPointer } from '@fortawesome/free-solid-svg-icons';
+  import { faUndo, faRedo, faBrush, faEraser, faHandPointer, faShapes, fas } from '@fortawesome/free-solid-svg-icons';
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
   import LayoutFooter from './components/layout/Footer';
   import LayoutHeader from './components/layout/Header';
@@ -31,7 +31,8 @@
   Vue.use(ElementUI);
   Vue.use(FontAwesomeIcon);
 
-  library.add(faUndo, faRedo, faBrush, faEraser, faHandPointer);
+  library.add(fas);
+  library.add(faUndo, faRedo, faBrush, faEraser, faHandPointer, faShapes);
   Vue.component('font-awesome-icon', FontAwesomeIcon);
 
   window.fabric = window.fabric || fabric;
@@ -54,7 +55,6 @@
             width, height, isDrawingMode: true
           }
         );
-        window.__canvas.freeDrawingBrush = new fabric.YxExtEraserBrush(window.__canvas);
         let rect = new fabric.Rect({
           top: 100,
           left: 100,

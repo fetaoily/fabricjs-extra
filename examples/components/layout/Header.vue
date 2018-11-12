@@ -1,5 +1,8 @@
 <template>
   <header class="layout-header">
+    <!-- =========================================================================================================== -->
+    <!-- 选择画笔宽度和颜色 -->
+    <!-- =========================================================================================================== -->
     <el-popover ref="popover1">
       <div class="layout-header-popover1">
         <div class="layout-header-popover1-brush-width">
@@ -20,6 +23,12 @@
       </div>
     </el-popover>
     <!-- =========================================================================================================== -->
+    <!-- 选择图形 -->
+    <!-- =========================================================================================================== -->
+    <el-popover ref="popover2">
+      选择图形
+    </el-popover>
+    <!-- =========================================================================================================== -->
     <!-- 画板操作 -->
     <!-- =========================================================================================================== -->
     <el-button-group>
@@ -28,6 +37,9 @@
       </el-button>
       <el-button v-on:click="setDrawingModeForBrush({})" title="画笔" v-popover:popover1>
         <font-awesome-icon icon="brush"></font-awesome-icon>
+      </el-button>
+      <el-button v-on:click="setDrawingModeForShapes({})" title="画笔" v-popover:popover2>
+        <font-awesome-icon icon="shapes"></font-awesome-icon>
       </el-button>
       <el-button v-on:click="setDrawingModeForEraser" title="橡皮">
         <font-awesome-icon icon="eraser"></font-awesome-icon>
@@ -93,6 +105,8 @@
         console.info(this.brushWidth);
         console.info(this.brushColor);
         window.__canvas.setDrawingModeForBrush({ width: this.brushWidth, color: this.brushColor });
+      },
+      setDrawingModeForShapes ({}) {
       },
       setDrawingModeForEraser () {
         window.__canvas.setDrawingModeForEraser({ width: 30 })
