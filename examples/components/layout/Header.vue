@@ -1,5 +1,24 @@
 <template>
   <header class="layout-header">
+    <el-popover ref="popover1">
+      <div class="layout-header-popover1">
+        <div class="layout-header-popover1-brush-width">
+          <div class="layout-header-popover1-brush-width-item" v-for="(item,idx) in [5,10,20,30]"
+               v-on:click="setDrawingModeForBrush({width:item})">
+            <div class="layout-header-popover1-brush-width-item-body"
+                 v-bind:style="{width:`${item}px`,height:`${item}px`,'border-radius':`${item/2}px`}">{{item}}
+            </div>
+          </div>
+        </div>
+        <div class="layout-header-popover1-brush-color">
+          <div class="layout-header-popover1-brush-color-item"
+               v-for="(item,idx) in ['#FF0000','#0FF000','#00FF00','#000FF0','#0000FF','#F0000F']"
+               v-on:click="setDrawingModeForBrush({color:item})"
+               v-bind:style="{backgroundColor:`${item}`}">
+          </div>
+        </div>
+      </div>
+    </el-popover>
     <!-- =========================================================================================================== -->
     <!-- 画板操作 -->
     <!-- =========================================================================================================== -->
@@ -7,7 +26,7 @@
       <el-button v-on:click="setDrawingMode(false)" title="选择">
         <font-awesome-icon icon="hand-pointer"></font-awesome-icon>
       </el-button>
-      <el-button v-on:click="setDrawingModeForBrush" title="画笔">
+      <el-button v-on:click="setDrawingModeForBrush({})" title="画笔" v-popover:popover1>
         <font-awesome-icon icon="brush"></font-awesome-icon>
       </el-button>
       <el-button v-on:click="setDrawingModeForEraser" title="橡皮">
@@ -43,7 +62,9 @@
     name: "Header",
     data () {
       return {
-        canvas: null
+        canvas: null,
+        brushWidth: 10,
+        brushColor: 'red'
       }
     },
     mounted () {
@@ -59,11 +80,19 @@
       redo () {
         this.canvas && this.canvas.redo()
       },
+      closePopover () {
+        this.$refs.popover1.doClose();
+      },
       setDrawingMode (flag = true) {
         this.canvas && this.canvas.setDrawingMode(flag)
       },
-      setDrawingModeForBrush () {
-        window.__canvas.setDrawingModeForBrush({})
+      setDrawingModeForBrush ({ width, color }) {
+        this.closePopover();
+        this.brushWidth = width || this.brushWidth;
+        this.brushColor = color || this.brushColor;
+        console.info(this.brushWidth);
+        console.info(this.brushColor);
+        window.__canvas.setDrawingModeForBrush({ width: this.brushWidth, color: this.brushColor });
       },
       setDrawingModeForEraser () {
         window.__canvas.setDrawingModeForEraser({ width: 30 })
@@ -88,5 +117,47 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .layout-header-popover1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .layout-header-popover1-brush-width {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .layout-header-popover1-brush-width-item {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .layout-header-popover1-brush-width-item-body {
+    border: solid 1px green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .layout-header-popover1-brush-color {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .layout-header-popover1-brush-color-item {
+    width: 40px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 </style>
