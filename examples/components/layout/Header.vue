@@ -30,7 +30,7 @@
         <div class="layout-header-popover2-title">选择图形</div>
         <div class="layout-header-popover2-body">
           <div class="layout-header-popover2-body-item"
-               v-on:click="setDrawingModeForShapes({shapeType:'YxExtDashLine'})">虚线
+               v-on:click="setDrawingModeForShapes({shapeType:'YxExtShapeDashLine'})">虚线
           </div>
           <div class="layout-header-popover2-body-item"
                v-on:click="setDrawingModeForShapes({shapeType:'YxExtSolidLine'})">实线
