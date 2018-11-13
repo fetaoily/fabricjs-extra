@@ -1,11 +1,7 @@
 /* eslint-disable */
 const { fabric } = require('fabric');
 require('./lib/YxExt')({ fabric });
-require('./lib/YxExtShapeDashLine')({ fabric });
-require('./lib/YxExtShapeSolidLine')({ fabric });
-require('./lib/YxExtShapeCircle')({ fabric });
-require('./lib/YxExtShapeSquare')({ fabric });
-require('./lib/YxExtShapeRectangle')({ fabric });
+require('./lib/YxExtShape')({ fabric });
 require('./lib/YxExtEraserPath')({ fabric });
 require('./lib/YxExtEraserBrush')({ fabric });
 module.exports = { fabric };
