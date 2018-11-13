@@ -3,7 +3,7 @@ const { fabric } = require('fabric');
 require('./lib/YxExt')({ fabric });
 require('./lib/YxExtDashLine')({ fabric });
 require('./lib/YxExtSolidLine')({ fabric });
-require('./lib/YxExtCircle')({ fabric });
+require('./lib/YxExtShapeCircle')({ fabric });
 require('./lib/YxExtShapeSquare')({ fabric });
 require('./lib/YxExtShapeRectangle')({ fabric });
 require('./lib/YxExtEraserPath')({ fabric });

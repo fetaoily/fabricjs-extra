@@ -36,7 +36,7 @@
                v-on:click="setDrawingModeForShapes({shapeType:'YxExtSolidLine'})">实线
           </div>
           <div class="layout-header-popover2-body-item"
-               v-on:click="setDrawingModeForShapes({shapeType:'YxExtCircle'})">圆形
+               v-on:click="setDrawingModeForShapes({shapeType:'YxExtShapeCircle'})">圆形
           </div>
           <div class="layout-header-popover2-body-item"
                v-on:click="setDrawingModeForShapes({shapeType:'YxExtShapeSquare'})">正方形
