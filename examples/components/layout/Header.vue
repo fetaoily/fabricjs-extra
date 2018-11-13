@@ -47,6 +47,9 @@
           <div class="layout-header-popover2-body-item"
                v-on:click="setDrawingModeForShapes({shapeType:'YxExtShapeEllipse'})">椭圆
           </div>
+          <div class="layout-header-popover2-body-item"
+               v-on:click="setDrawingModeForShapes({shapeType:'YxExtShapeTriangle'})">三角形
+          </div>
         </div>
       </div>
     </el-popover>
