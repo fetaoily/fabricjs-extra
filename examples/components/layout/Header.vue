@@ -26,7 +26,12 @@
     <!-- 选择图形 -->
     <!-- =========================================================================================================== -->
     <el-popover ref="popover2">
-      选择图形
+      <div class="layout-header-popover2">
+        <div class="layout-header-popover2-title">选择图形</div>
+        <div class="layout-header-popover2-body">
+          <div class="layout-header-popover2-body-item" v-on:click="setDrawingModeForShapes({shapeType:'YxExtDashLine'})">虚线</div>
+        </div>
+      </div>
     </el-popover>
     <!-- =========================================================================================================== -->
     <!-- 画板操作 -->
@@ -106,7 +111,9 @@
         console.info(this.brushColor);
         window.__canvas.setDrawingModeForBrush({ width: this.brushWidth, color: this.brushColor });
       },
-      setDrawingModeForShapes ({}) {
+      setDrawingModeForShapes ({ shapeType }) {
+        console.info(shapeType);
+        this.canvas.setDrawingModeForShapes({ shapeType });
       },
       setDrawingModeForEraser () {
         window.__canvas.setDrawingModeForEraser({ width: 30 })
@@ -115,7 +122,7 @@
         window.__canvas.clear();
       },
       setOverlayImageCenter (imageDataURL) {
-        this.canvas && this.canvas.setOverlayImageCenter(imageDataURL, { opacity: 0.5 });
+        this.canvas && this.canvas.setOverlayImageCenter(imageDataURL, { opacity: 0.8 });
       },
       setBackgroundImageCenter (imageDataURL) {
         this.canvas && this.canvas.setBackgroundImageCenter(imageDataURL);
@@ -173,5 +180,31 @@
     cursor: pointer;
     margin-left: 5px;
     margin-right: 5px;
+  }
+
+  .layout-header-popover2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .layout-header-popover2-title {
+    font-size: 16px;
+    font-weight: 800;
+  }
+
+  .layout-header-popover2-body {
+    display: flex;
+    flex-direction: row;
+
+  }
+
+  .layout-header-popover2-body-item {
+    width: 40px;
+    height: 40px;
+    background-color: whitesmoke;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>
