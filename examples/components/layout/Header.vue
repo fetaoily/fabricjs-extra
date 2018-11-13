@@ -38,6 +38,12 @@
           <div class="layout-header-popover2-body-item"
                v-on:click="setDrawingModeForShapes({shapeType:'YxExtCircle'})">圆形
           </div>
+          <div class="layout-header-popover2-body-item"
+               v-on:click="setDrawingModeForShapes({shapeType:'YxExtShapeSquare'})">正方形
+          </div>
+          <div class="layout-header-popover2-body-item"
+               v-on:click="setDrawingModeForShapes({shapeType:'YxExtShapeRectangle'})">长方形
+          </div>
         </div>
       </div>
     </el-popover>
