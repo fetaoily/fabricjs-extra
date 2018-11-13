@@ -62,7 +62,7 @@
           width: 60,
           height: 70
         });
-        let dashLine = new fabric.YxExtDashLine([200, 10, 500, 300], {
+        let dashLine = new fabric.YxExtShapeDashLine([200, 10, 500, 300], {
           fill: 'red',
           stroke: 'red',
           strokeWidth: 5,
