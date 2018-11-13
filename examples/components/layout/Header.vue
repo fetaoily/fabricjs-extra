@@ -35,6 +35,9 @@
           <div class="layout-header-popover2-body-item"
                v-on:click="setDrawingModeForShapes({shapeType:'YxExtSolidLine'})">实线
           </div>
+          <div class="layout-header-popover2-body-item"
+               v-on:click="setDrawingModeForShapes({shapeType:'YxExtCircle'})">圆形
+          </div>
         </div>
       </div>
     </el-popover>
@@ -48,7 +51,7 @@
       <el-button v-on:click="setDrawingModeForBrush({})" title="画笔" v-popover:popover1>
         <font-awesome-icon icon="brush"></font-awesome-icon>
       </el-button>
-      <el-button v-on:click="setDrawingModeForShapes({})" title="画笔" v-popover:popover2>
+      <el-button v-on:click="setDrawingModeForShapes({})" title="图形" v-popover:popover2>
         <font-awesome-icon icon="shapes"></font-awesome-icon>
       </el-button>
       <el-button v-on:click="setDrawingModeForEraser" title="橡皮">
@@ -118,6 +121,9 @@
         window.__canvas.setDrawingModeForBrush({ width: this.brushWidth, color: this.brushColor });
       },
       setDrawingModeForShapes ({ shapeType }) {
+        if (!shapeType) {
+          return;
+        }
         this.closePopover();
         this.canvas.setDrawingModeForShapes({ shapeType });
         this.$message.success(shapeType);
