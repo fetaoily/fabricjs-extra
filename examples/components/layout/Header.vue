@@ -29,7 +29,12 @@
       <div class="layout-header-popover2">
         <div class="layout-header-popover2-title">选择图形</div>
         <div class="layout-header-popover2-body">
-          <div class="layout-header-popover2-body-item" v-on:click="setDrawingModeForShapes({shapeType:'YxExtDashLine'})">虚线</div>
+          <div class="layout-header-popover2-body-item"
+               v-on:click="setDrawingModeForShapes({shapeType:'YxExtDashLine'})">虚线
+          </div>
+          <div class="layout-header-popover2-body-item"
+               v-on:click="setDrawingModeForShapes({shapeType:'YxExtSolidLine'})">实线
+          </div>
         </div>
       </div>
     </el-popover>
@@ -99,6 +104,7 @@
       },
       closePopover () {
         this.$refs.popover1.doClose();
+        this.$refs.popover2.doClose();
       },
       setDrawingMode (flag = true) {
         this.canvas && this.canvas.setDrawingMode(flag)
@@ -112,8 +118,9 @@
         window.__canvas.setDrawingModeForBrush({ width: this.brushWidth, color: this.brushColor });
       },
       setDrawingModeForShapes ({ shapeType }) {
-        console.info(shapeType);
+        this.closePopover();
         this.canvas.setDrawingModeForShapes({ shapeType });
+        this.$message.success(shapeType);
       },
       setDrawingModeForEraser () {
         window.__canvas.setDrawingModeForEraser({ width: 30 })
@@ -201,10 +208,17 @@
   .layout-header-popover2-body-item {
     width: 40px;
     height: 40px;
-    background-color: whitesmoke;
+    margin: 5px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: whitesmoke;
+  }
+
+  .layout-header-popover2-body-item:hover {
+    color: white;
+    font-weight: 800;
+    background-color: black;
   }
 </style>
