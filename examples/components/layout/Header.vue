@@ -57,7 +57,7 @@
     <!-- 画板操作 -->
     <!-- =========================================================================================================== -->
     <el-button-group>
-      <el-button v-on:click="setDrawingMode(false)" title="选择">
+      <el-button v-on:click="setSelectionMode(true)" title="选择">
         <font-awesome-icon icon="hand-pointer"></font-awesome-icon>
       </el-button>
       <el-button v-on:click="setDrawingModeForBrush({})" title="画笔" v-popover:popover1>
@@ -123,6 +123,9 @@
       },
       setDrawingMode (flag = true) {
         this.canvas && this.canvas.setDrawingMode(flag)
+      },
+      setSelectionMode (flag = true) {
+        this.canvas && this.canvas.setSelectionMode(flag);
       },
       setDrawingModeForBrush ({ width, color }) {
         this.closePopover();
