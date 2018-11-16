@@ -56,7 +56,7 @@
             width, height, isDrawingMode: true
           }
         );
-        this.canvas.setYxExtCursorForDefaultBrush();
+        this.canvas.setYxExtCursorFromImageURL(require('./assets/ico_cursor_brush.png'));
       },
       initAddShapes () {
         let rect = new fabric.Rect({

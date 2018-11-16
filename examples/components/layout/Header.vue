@@ -132,7 +132,7 @@
         this.brushWidth = width || this.brushWidth;
         this.brushColor = color || this.brushColor;
         window.__canvas.setDrawingModeForBrush({ width: this.brushWidth, color: this.brushColor });
-        this.canvas.setYxExtCursorForDefaultBrush();
+        this.canvas.setYxExtCursorFromImageURL(require('../../assets/ico_cursor_brush.png'));
       },
       setDrawingModeForShapes ({ shapeType }) {
         if (!shapeType) {
@@ -144,7 +144,7 @@
       },
       setDrawingModeForEraser () {
         window.__canvas.setDrawingModeForEraser({ width: 30 });
-        this.canvas.setYxExtCursorForDefaultEraser();
+        this.canvas.setYxExtCursorFromImageURL(require('../../assets/ico_cursor_eraser.png'));
       },
       clearCanvas () {
         window.__canvas.clear();
