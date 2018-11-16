@@ -131,9 +131,8 @@
         this.closePopover();
         this.brushWidth = width || this.brushWidth;
         this.brushColor = color || this.brushColor;
-        console.info(this.brushWidth);
-        console.info(this.brushColor);
         window.__canvas.setDrawingModeForBrush({ width: this.brushWidth, color: this.brushColor });
+        this.canvas.setYxExtCursorForDefaultBrush();
       },
       setDrawingModeForShapes ({ shapeType }) {
         if (!shapeType) {
@@ -144,7 +143,8 @@
         this.$message.success(shapeType);
       },
       setDrawingModeForEraser () {
-        window.__canvas.setDrawingModeForEraser({ width: 30 })
+        window.__canvas.setDrawingModeForEraser({ width: 30 });
+        this.canvas.setYxExtCursorForDefaultEraser();
       },
       clearCanvas () {
         window.__canvas.clear();

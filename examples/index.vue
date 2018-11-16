@@ -46,6 +46,7 @@
     },
     mounted () {
       this.initFabricCanvas();
+      this.initAddShapes();
       this.initWindowResizeEventHandler();
     },
     methods: {
@@ -55,6 +56,9 @@
             width, height, isDrawingMode: true
           }
         );
+        this.canvas.setYxExtCursorForDefaultBrush();
+      },
+      initAddShapes () {
         let rect = new fabric.Rect({
           top: 100,
           left: 100,
@@ -70,14 +74,14 @@
         });
         this.canvas.add(rect);
         this.canvas.add(dashLine);
-        this.canvas.renderAll();
+        this.canvas.requestRenderAll();
       },
       initWindowResizeEventHandler () {
         window.onresize = () => {
           let { width, height } = this.getCanvasWidthAndHeight();
           window.__canvas.setWidth(width);
           window.__canvas.setHeight(height);
-          window.__canvas.renderAll();
+          window.__canvas.requestRenderAllBound();
         }
       },
       getCanvasWidthAndHeight () {
