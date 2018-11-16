@@ -139,7 +139,7 @@
           return;
         }
         this.closePopover();
-        this.canvas.setDrawingModeForShapes({ shapeType });
+        this.canvas.setDrawingModeForShapes({ width: 5, color: 'red', shapeType });
         this.$message.success(shapeType);
       },
       setDrawingModeForEraser () {
