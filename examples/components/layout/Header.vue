@@ -141,6 +141,7 @@
         this.closePopover();
         this.canvas.setDrawingModeForShapes({ width: 5, color: 'red', shapeType });
         this.$message.success(shapeType);
+        this.canvas.setYxExtCursorFromImageURL(require('../../assets/ico_cursor_shape.png'));
       },
       setDrawingModeForEraser () {
         window.__canvas.setDrawingModeForEraser({ width: 30 });
