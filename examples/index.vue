@@ -53,7 +53,7 @@
       initFabricCanvas () {
         let { width, height } = this.getCanvasWidthAndHeight();
         window.__canvas = this.canvas = new fabric.Canvas('c', {
-            width, height, isDrawingMode: true, backgroundColor: '#333333'
+            width, height, isDrawingMode: true
           }
         );
         this.canvas.setYxExtCursorFromImageURL(require('./assets/ico_cursor_brush.png'));

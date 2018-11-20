@@ -95,7 +95,7 @@
     <!-- 更换前景图片 -->
     <!-- =========================================================================================================== -->
     <el-button-group>
-      <el-button v-on:click="toJSON">ToJSON</el-button>
+      <el-button v-on:click="saveToJSON">SaveToJSON</el-button>
       <el-button v-on:click="loadFromJSON">LoadFromJSON</el-button>
     </el-button-group>
   </header>
@@ -165,13 +165,13 @@
       setBackgroundImageCenter (imageDataURL) {
         this.canvas && this.canvas.setBackgroundImageCenter(imageDataURL);
       },
-      toJSON () {
+      saveToJSON () {
         ls('drawing-board-json-data', this.canvas.toJSON());
       },
       loadFromJSON () {
         this.clearCanvas();
         window.setTimeout(() => {
-          this.canvas.loadFromJSONForYxExt(ls('drawing-board-json-data'), this.canvas.requestRenderAll.bind(this.canvas));
+          this.canvas.loadFromJSON(ls('drawing-board-json-data'), this.canvas.requestRenderAll.bind(this.canvas));
         }, 500);
       }
     }
