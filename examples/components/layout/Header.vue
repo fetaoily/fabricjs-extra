@@ -91,10 +91,19 @@
       <el-button v-on:click="setOverlayImageCenter(require('../../assets/img-bg/田字格.png'))">前景1</el-button>
       <el-button v-on:click="setOverlayImageCenter(require('../../assets/img-bg/田字格（单个）.png'))">前景2</el-button>
     </el-button-group>
+    <!-- =========================================================================================================== -->
+    <!-- 更换前景图片 -->
+    <!-- =========================================================================================================== -->
+    <el-button-group>
+      <el-button v-on:click="toJSON">ToJSON</el-button>
+      <el-button v-on:click="loadFromJSON">LoadFromJSON</el-button>
+    </el-button-group>
   </header>
 </template>
 
 <script>
+  import ls from 'local-storage';
+
   export default {
     name: "Header",
     data () {
@@ -155,6 +164,15 @@
       },
       setBackgroundImageCenter (imageDataURL) {
         this.canvas && this.canvas.setBackgroundImageCenter(imageDataURL);
+      },
+      toJSON () {
+        ls('drawing-board-json-data', this.canvas.toJSON());
+      },
+      loadFromJSON () {
+        this.clearCanvas();
+        window.setTimeout(() => {
+          this.canvas.loadFromJSONForYxExt(ls('drawing-board-json-data'), this.canvas.requestRenderAll.bind(this.canvas));
+        }, 500);
       }
     }
   }
