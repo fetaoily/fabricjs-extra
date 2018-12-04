@@ -16,15 +16,15 @@
     "dev": "vue serve -o ./examples/index.vue"
   },
   "dependencies": {
-    "fabric": "2.4.3"
+    "fabric": "2.4.4"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.8",
     "@fortawesome/free-solid-svg-icons": "5.5.0",
     "@fortawesome/vue-fontawesome": "0.1.2",
-    "@vue/cli": "3.1.1",
-    "@vue/cli-service-global": "3.1.2",
-    "element-ui": "2.4.9",
+    "@vue/cli": "3.2.1",
+    "@vue/cli-service-global": "3.2.1",
+    "element-ui": "2.4.11",
     "local-storage": "1.4.2"
   }
 }
